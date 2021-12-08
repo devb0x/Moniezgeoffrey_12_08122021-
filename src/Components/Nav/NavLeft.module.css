@@ -1,9 +1,11 @@
 .nav-left {
+  position: absolute;
   width: 117px;
   background-color: #020203;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 91px);
+  margin-right: 117px;
 }
 
 .nav-left > ul {

@@ -7,7 +7,7 @@ const HeaderTop = () => {
       <header>
         <div className={`${styles['logo']}`}>
           <img
-            src={require('../public/img/logo_SportSee.png').default} alt="SportSee logo"
+            src={require('../../public/img/logo_SportSee.png').default} alt="SportSee logo"
           />
         </div>
         <nav className={`${styles['nav-top']}`}>
