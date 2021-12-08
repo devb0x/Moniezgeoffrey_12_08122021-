@@ -1,0 +1,39 @@
+.nav-left {
+  width: 117px;
+  background-color: #020203;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 91px);
+}
+
+.nav-left > ul {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.nav-left__link {
+  margin: auto auto 20px;
+  height: 4rem;
+  width: 4rem;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.rotate {
+  transform: rotate(-90deg);
+  margin-bottom: 4rem;
+}
+
+.nav-left__copyright {
+  color: white;
+  font-size: 12px;
+  width: 150px;
+}
+
+a > img {
+  display: flex;
+  margin: auto;
+  height: 100%;
+  width: 60%;
+}

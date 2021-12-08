@@ -1,0 +1,38 @@
+header {
+  background-color: #020203;
+  height: 91px;
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  margin-left: 2rem;
+  align-self: center;
+}
+
+.logo > img {
+  width: 178px;
+  height: 61px;
+}
+
+.nav-top {
+  margin-left: auto;
+  margin-right: 5.5rem;
+  width: 100%;
+  width: -moz-fit-content;
+  align-self: center;
+}
+
+.nav-top > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-top__link {
+  margin-left: auto;
+}
+
+.nav-top__link > a {
+  color: white;
+  font-size: 1.5rem;
+}
