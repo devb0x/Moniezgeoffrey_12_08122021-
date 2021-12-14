@@ -7,23 +7,23 @@ const NavLeft = () => {
     <nav className={`${styles['nav-left']}`}>
       <ul>
         <li className={`${styles['nav-left__link']}`}>
-          <a href="#">
-            <img src={require('../../public/img/sport1.svg').default}/>
+          <a href="/">
+            <img src={require('../../public/img/sport1.svg').default} alt={'icon sport'} />
           </a>
         </li>
         <li className={`${styles['nav-left__link']}`}>
-          <a href="#">
-            <img src={require('../../public/img/sport2.svg').default}/>
+          <a href="/">
+            <img src={require('../../public/img/sport2.svg').default} alt={'icon sport'} />
           </a>
         </li>
         <li className={`${styles['nav-left__link']}`}>
-          <a href="#">
-            <img src={require('../../public/img/sport3.svg').default}/>
+          <a href="/">
+            <img src={require('../../public/img/sport3.svg').default} alt={'icon sport'}/>
           </a>
         </li>
         <li className={`${styles['nav-left__link']}`}>
-          <a href="#">
-            <img src={require('../../public/img/sport4.svg').default}/>
+          <a href="/">
+            <img src={require('../../public/img/sport4.svg').default} alt={'icon sport'} />
           </a>
         </li>
       </ul>

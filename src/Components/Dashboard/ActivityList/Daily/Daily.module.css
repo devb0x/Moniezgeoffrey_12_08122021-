@@ -1,0 +1,14 @@
+.container {
+  background-color: #FBFBFB;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  width: 835px;
+  height: 320px;
+  margin-top: 5rem;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}

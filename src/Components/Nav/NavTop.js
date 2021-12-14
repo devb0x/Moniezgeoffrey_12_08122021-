@@ -1,8 +1,8 @@
 import React from "react"
 
-import styles from './HeaderTop.module.css'
+import styles from './NavTop.module.css'
 
-const HeaderTop = () => {
+const NavTop = () => {
   return (
       <header>
         <div className={`${styles['logo']}`}>
@@ -13,22 +13,22 @@ const HeaderTop = () => {
         <nav className={`${styles['nav-top']}`}>
           <ul>
             <li className={`${styles['nav-top__link']}`}>
-              <a href="#">
+              <a href="/">
                 Accueil
               </a>
             </li>
             <li className={`${styles['nav-top__link']}`}>
-              <a href="#">
+              <a href="/">
                 Profil
               </a>
             </li>
             <li className={`${styles['nav-top__link']}`}>
-              <a href="#">
+              <a href="/">
                 Réglage
               </a>
             </li>
             <li className={`${styles['nav-top__link']}`}>
-              <a href="#">
+              <a href="/">
                 Communauté
               </a>
             </li>
@@ -38,4 +38,4 @@ const HeaderTop = () => {
   )
 }
 
-export default HeaderTop
+export default NavTop

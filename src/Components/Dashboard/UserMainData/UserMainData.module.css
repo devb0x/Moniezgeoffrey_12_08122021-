@@ -1,0 +1,21 @@
+.firstname {
+  color: red;
+}
+
+aside {
+  float: right;
+}
+
+.data {
+  align-self: center;
+  margin: auto;
+  color: #282D30;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.data-category {
+  color: #74798C;
+  font-size: 14px;
+  font-weight: 500;
+}

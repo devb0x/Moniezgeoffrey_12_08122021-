@@ -1,10 +1,3 @@
-import React, {Fragment, useState} from "react"
-
-import './App.css';
-import NavTop from "./Components/Nav/NavTop"
-import NavLeft from "./Components/Nav/NavLeft"
-import Dashboard from "./Components/Dashboard/Dashboard"
-
 const USER_MAIN_DATA = [
   {
     id: 12,
@@ -28,7 +21,7 @@ const USER_MAIN_DATA = [
       lastName: 'Ratorez',
       age: 34,
     },
-    todayScore: 0.3,
+    score: 0.3,
     keyData: {
       calorieCount: 2500,
       proteinCount: 90,
@@ -269,16 +262,11 @@ const USER_PERFORMANCE = [
   }
 ]
 
-function App() {
-  const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
 
-  return (
-    <Fragment >
-      <NavTop />
-      <NavLeft />
-      <Dashboard data={userMainData}/>
-    </Fragment>
-  );
+
+module.exports = {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE
 }
-
-export default App;
