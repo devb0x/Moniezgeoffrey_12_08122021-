@@ -8,22 +8,22 @@ const NavLeft = () => {
       <ul>
         <li className={`${styles['nav-left__link']}`}>
           <a href="/">
-            <img src={require('../../public/img/sport1.svg').default} alt={'icon sport'} />
+            <img src={require('../../public/img/sport1.svg')} alt={'icon sport'} />
           </a>
         </li>
         <li className={`${styles['nav-left__link']}`}>
           <a href="/">
-            <img src={require('../../public/img/sport2.svg').default} alt={'icon sport'} />
+            <img src={require('../../public/img/sport2.svg')} alt={'icon sport'} />
           </a>
         </li>
         <li className={`${styles['nav-left__link']}`}>
           <a href="/">
-            <img src={require('../../public/img/sport3.svg').default} alt={'icon sport'}/>
+            <img src={require('../../public/img/sport3.svg')} alt={'icon sport'}/>
           </a>
         </li>
         <li className={`${styles['nav-left__link']}`}>
           <a href="/">
-            <img src={require('../../public/img/sport4.svg').default} alt={'icon sport'} />
+            <img src={require('../../public/img/sport4.svg')} alt={'icon sport'} />
           </a>
         </li>
       </ul>

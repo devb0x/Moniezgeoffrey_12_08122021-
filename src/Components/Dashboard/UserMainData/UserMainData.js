@@ -18,28 +18,28 @@ const UserMainData = (props) => {
 
       <aside>
         <Card>
-          <img src={require('../../../public/img/calories-icon.svg').default} alt="calories icône"/>
+          <img src={require('../../../public/img/calories-icon.svg')} alt="calories icône"/>
           <div className={styles.data}>
             {props.data[0].keyData.calorieCount}kCal <br />
             <span className={`${styles['data-category']}`}>Calories</span>
           </div>
         </Card>
         <Card>
-          <img src={require('../../../public/img/protein-icon.svg').default} alt="protéines icône"/>
+          <img src={require('../../../public/img/protein-icon.svg')} alt="protéines icône"/>
           <div className={styles.data}>
             {props.data[0].keyData.proteinCount}g <br />
             <span className={`${styles['data-category']}`}>Protéines</span>
           </div>
         </Card>
         <Card>
-          <img src={require('../../../public/img/carbs-icon.svg').default} alt="glucides icône"/>
+          <img src={require('../../../public/img/carbs-icon.svg')} alt="glucides icône"/>
           <div className={styles.data}>
             {props.data[0].keyData.carbohydrateCount}g <br />
             <span className={`${styles['data-category']}`}>Glucides</span>
           </div>
         </Card>
         <Card>
-          <img src={require('../../../public/img/fat-icon.svg').default} alt="lipides icône"/>
+          <img src={require('../../../public/img/fat-icon.svg')} alt="lipides icône"/>
           <div className={styles.data}>
             {props.data[0].keyData.lipidCount}g <br />
             <span className={`${styles['data-category']}`}>Lipides</span>
