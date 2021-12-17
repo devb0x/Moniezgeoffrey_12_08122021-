@@ -11,6 +11,8 @@ import {matches} from "@testing-library/jest-dom/dist/utils"
 const Dashboard = (props) => {
   const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
 
+  // console.log(props.data)
+
   // console.warn(props)
 
   // # get the id                   ok
@@ -29,17 +31,20 @@ const Dashboard = (props) => {
     el => parseInt(el.userId) === parseInt(id)
   )
   // console.log(userActivity)
+  const userPerformance = props.performance.filter(
+    el => parseInt(el.userId) === parseInt(id)
+  )
+  // console.warn(userPerformance)
 
   return (
     <div className={styles.dashboard}>
-      Dashboard component <br />
       {/*<UserMainData data={props.data}/>*/}
       <UserMainData data={userData[0]}/>
       <ActivitiesList
         data={props.data}
         // activity={props.activity}
         activity={userActivity[0]}
-        performance={props.performance}
+        performance={userPerformance[0]}
         sessions={props.sessions}
       />
     </div>

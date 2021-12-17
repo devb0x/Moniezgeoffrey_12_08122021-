@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'rec
 import CustomizedTooltipDaily from "../../../UI/CustomizedTooltipDaily"
 
 const Daily = (props) => {
-  console.log(props.activity.sessions)
+  // console.log(props.activity.sessions)
 
   const [data, setData] = useState([])
 
@@ -63,7 +63,7 @@ const Daily = (props) => {
               {
                 value: 'Poids (kg)',
                 type: 'circle',
-                color: '#9B9EAC'
+                color: '#282D30'
               },
               {
                 value: 'Calories brûlées (kCal)',
