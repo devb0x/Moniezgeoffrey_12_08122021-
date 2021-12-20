@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from "react"
-import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 
 import './App.css';
 import NavTop from "./Components/Nav/NavTop"
@@ -10,7 +10,6 @@ import {USER_MAIN_DATA} from "./public/data"
 import {USER_ACTIVITY} from "./public/data"
 import {USER_PERFORMANCE} from "./public/data"
 import {USER_AVERAGE_SESSIONS} from "./public/data"
-import {BrowserRouter} from "react-router-dom"
 
 function App() {
   const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
@@ -26,6 +25,11 @@ function App() {
 
         <Router>
           <Routes>
+
+            <Route
+              exact path={'/'}
+              element={ <Navigate to="/user/12" /> }
+            />
 
             <Route
               path={"/user/:id"}

@@ -8,8 +8,9 @@ import Score from "./Score/Score"
 // import Sessions from "./Sessions/Sessions"
 
 const ActivitiesList = (props) => {
-  console.log(props)
+  // console.log(props)
   // console.log(props.activity)
+  console.log(props.data)
 
   return (
     <div className={styles.container}>
