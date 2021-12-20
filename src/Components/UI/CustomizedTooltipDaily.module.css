@@ -1,4 +1,14 @@
 .tooltip {
   background-color: #E60000;
   color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tooltip p {
+  background-color: #E60000;
+  padding: 0.8em;
+  text-align: center;
+  font-weight: 500;
 }

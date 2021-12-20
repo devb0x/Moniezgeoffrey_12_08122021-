@@ -1,12 +1,11 @@
 import React, {useState} from "react"
-import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 import styles from './Dashboard.module.css'
 import UserMainData from "./UserMainData/UserMainData"
 import ActivitiesList from "./ActivitiesList/ActivitiesList"
 import {USER_MAIN_DATA} from "../../public/data"
-import {matches} from "@testing-library/jest-dom/dist/utils"
 
 const Dashboard = (props) => {
   const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
@@ -25,7 +24,7 @@ const Dashboard = (props) => {
   const userData = props.data.filter(
     el => parseInt(el.id) === parseInt(id)
   )
-  // console.log(userData)
+  console.log(userData[0])
 
   const userActivity = props.activity.filter(
     el => parseInt(el.userId) === parseInt(id)
@@ -41,7 +40,7 @@ const Dashboard = (props) => {
       {/*<UserMainData data={props.data}/>*/}
       <UserMainData data={userData[0]}/>
       <ActivitiesList
-        data={props.data}
+        data={userData[0]}
         // activity={props.activity}
         activity={userActivity[0]}
         performance={userPerformance[0]}

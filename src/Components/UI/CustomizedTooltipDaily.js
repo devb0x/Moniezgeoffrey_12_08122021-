@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {Component, useState} from 'react';
 
 import styles from './CustomizedTooltipDaily.module.css'
 
 function CustomizedTooltipDaily(props) {
-  const {payload} = props
-  // console.log(props.data)
-  // console.log(payload)
-  return (
-    <div className={styles.tooltip}>
-      <p>tooltip</p>
-      {`${props.data[1].kilogram}` + 'kg'}
-      {`${props.data[1].calories}` + 'kCal'}
-    </div>
-  );
+  if (props) {
+    return (
+      <div className={styles.tooltip}>
+        <p>
+          {`${props.payload[0]?.value} kg`}
+        </p>
+        <p>
+          {`${props.payload[1]?.value}` + 'Kcal'}
+        </p>
+      </div>
+    );
+  }
+  return null
 }
 
 export default CustomizedTooltipDaily;

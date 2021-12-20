@@ -36,17 +36,19 @@ const Daily = (props) => {
           dy={15}
         />
         <YAxis
-          dataKey="calories"
+          // dataKey="kilogram"
+          // domain={[65, 'dataMax']}
           stroke={'#9B9EAC'}
           orientation={'right'}
           dx={15}
           axisLine={false}
           tickLine={false}
+          tickCount={3}
         />
         {/*<Tooltip wrapperStyle={{ width: 100, backgroundColor: '#30ea05' }} />*/}
         <Tooltip
           content={CustomizedTooltipDaily}
-          data={props.activity.sessions}
+          // data={props.activity.sessions}
           // payload={[{
           //   unit1: 'kg',
           //   unit2: 'Kcal'

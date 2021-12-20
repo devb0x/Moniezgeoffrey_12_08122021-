@@ -18,24 +18,6 @@ function App() {
   const [userPerformance, setUserPerformance] = useState(USER_PERFORMANCE)
   const [userAverageSessions, setUserAverageSessions] = useState(USER_AVERAGE_SESSIONS)
 
-
-
-  // return (
-  //   <Fragment >
-  //     <NavTop />
-  //     <NavLeft />
-  //     <main>
-  //       <Dashboard
-  //         data={userMainData}
-  //         activity={userActivity}
-  //         performance={userPerformance}
-  //         sessions={userAverageSessions}
-  //       />
-  //     </main>
-  //   </Fragment>
-  // )
-
- // test router
   return (
     <Fragment >
       <NavTop />
@@ -43,7 +25,6 @@ function App() {
       <main>
 
         <Router>
-
           <Routes>
 
             <Route
