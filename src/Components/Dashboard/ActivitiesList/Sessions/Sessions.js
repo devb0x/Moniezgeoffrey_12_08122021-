@@ -1,45 +1,54 @@
 import React, {useState} from 'react';
 
-import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
 import CustomizedTooltipSessions from "./CustomizedTooltipSessions"
 
 import styles from './Sessions.module.css'
 
 const Sessions = (props) => {
 
-  let options = {
-    weekday: 'narrow'
-  }
-  const test = new Date(1901, 3, 1)
-  console.log(test)
+  // /**
+  //  * convert number to string
+  //  */
+  // props.sessions.forEach(el => {
+  //   for (let i = 0; i < props.sessions.length; i++) {
+  //     props.sessions[i].day = weekday[i]
+  //   }
+  //   console.log(el)
+  // })
 
-  let weekday = ["L", "M", "M", "J", "V", "S", "D"];
+  // const [data, setData] = useState(props.sessions)
+  //
+  // console.log(data)
+  const weekday = ["L", "M", "M", "J", "V", "S", "D"];
 
-  /**
-   * convert number to string
-   */
-  props.sessions.forEach(el => {
-    for (let i = 0; i < props.sessions.length; i++) {
-      props.sessions[i].day = weekday[i]
+  props.sessions.forEach((el, index) => {
+    if(el.day === index + 1 ) {
+      el.day = `${weekday[index]}`
+      console.log(el)
     }
-    console.log(el)
   })
 
-
-
-
-  // let options = {
-    // weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit',
-    // minute: '2-digit', second: '2-digit', hour12: false };
-  // let options = {
-  //   weekday: 'short'
-  // }
-  // let prnDt = 'Printed on ' + new Date().toLocaleTimeString('fr-FR', options);
-  //
-  // console.log(prnDt);
-
-  // if day: 1 => day: 'L'
-  // if day: 1 plusieurs fois, les aditionner
+  /**
+   * cursor
+   */
+  const CustomCursor = (props) => {
+    const { points, width, height, stroke } = props;
+    const { x, y } = points[0];
+    const { x1, y1 } = points[1];
+    // console.log(props);
+    return (
+      <Rectangle
+        fill="rgba(0, 0, 0, 0.1)"
+        // stroke="rgba(0, 0, 0, 0.1)"
+        // strokeWidth={0}
+        x={x}
+        y={0}
+        width={width}
+        height={500}
+      />
+    );
+  };
 
   return (
     <div className={styles.container}>
@@ -65,10 +74,12 @@ const Sessions = (props) => {
           />
           <Tooltip
             content={CustomizedTooltipSessions}
-            cursor={{
-              stroke: "rgba(0, 0, 0, 0.1)",
-              strokeWidth: 32,
-            }}
+            // cursor={{
+            //   stroke: "rgba(0, 0, 0, 0.1)",
+            //   strokeWidth: 32,
+            //   strokeHeight: 100
+            // }}
+            cursor={<CustomCursor />}
           />
           <Line
             type="monotone"

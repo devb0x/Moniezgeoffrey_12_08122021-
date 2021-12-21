@@ -5,3 +5,10 @@
   font-size: 8px;
   font-weight: 500;
 }
+
+.tooltip::after {
+  content: '';
+  background-color: blue;
+  height: 5rem;
+  width: 5rem;
+}

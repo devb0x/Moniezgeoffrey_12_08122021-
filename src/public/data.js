@@ -114,7 +114,6 @@ const USER_ACTIVITY = [
   }
 ]
 
-
 const USER_AVERAGE_SESSIONS = [
   {
     userId: 12,
@@ -183,7 +182,6 @@ const USER_AVERAGE_SESSIONS = [
     ]
   }
 ]
-
 
 const USER_PERFORMANCE = [
   {
@@ -261,8 +259,6 @@ const USER_PERFORMANCE = [
     ]
   }
 ]
-
-
 
 module.exports = {
   USER_MAIN_DATA,
