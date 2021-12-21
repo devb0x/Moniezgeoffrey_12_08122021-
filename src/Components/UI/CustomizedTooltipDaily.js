@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './CustomizedTooltipDaily.module.css'
 
-function CustomizedTooltipDaily(props) {
+const CustomizedTooltipDaily = (props) => {
   if (props) {
     return (
       <div className={styles.tooltip}>

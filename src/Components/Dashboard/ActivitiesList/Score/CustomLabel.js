@@ -1,44 +1,25 @@
 import React from 'react';
 
-// function CustomLabel(props) {
-//   return (
-//     <div>
-//       <span>12%</span>
-//       <h1>aze</h1>de votre objectif
-//     </div>
-//   );
-// }
-
-// const CustomLabel = ({ viewBox, noOfBubbleTeaSold = 0 }, props) => {
 const CustomLabel = (props) => {
-  console.log(props)
-
-  // const { cx, cy } = viewBox;
 
   const formatter = (value) => {
     return `${value}` * 100 + '%'
   }
 
-
-
   return (
     <React.Fragment>
-      {/*<text x={cx - 15} y={cy - 5}>*/}
-      <text x={110} y={125}>
+      <text x={100} y={110} >
         <tspan
           style={{
             fontWeight: 700,
             fontSize: "26px",
             fill: "#000",
-            // fontFamily: "Roboto"
           }}
         >
-          {/*{noOfBubbleTeaSold}*/}
           {formatter(props.score)}
         </tspan>
       </text>
-      {/*<text x={cx - 50} y={cy + 15}>*/}
-      <text x={105} y={145}>
+      <text x={95} y={135}>
         <tspan
           style={{
             fontSize: "1rem",
@@ -48,8 +29,7 @@ const CustomLabel = (props) => {
           de votre
         </tspan>
       </text>
-
-      <text x={105} y={165}>
+      <text x={95} y={160}>
         <tspan
           style={{
             fontSize: "1rem",

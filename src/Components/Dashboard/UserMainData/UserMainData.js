@@ -9,10 +9,10 @@ const UserMainData = (props) => {
 
   return (
     <Fragment>
-      <h1>
+      <h1 className={styles.title}>
         Bonjour <span className={styles.firstname}>{props.data.userInfos.firstName}</span>
       </h1>
-      <div>
+      <div className={styles.message}>
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </div>
 

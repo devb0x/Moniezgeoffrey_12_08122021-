@@ -1,0 +1,9 @@
+.container {
+  /*outline: 2px solid red;*/
+  width: 258px;
+  height: 263px;
+  background: #FF0000;
+  /*background: #6e5e5e;*/
+  border-radius: 5px;
+  /*color: white;*/
+}

@@ -1,14 +1,10 @@
 import React from "react"
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import {PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend} from 'recharts';
 
 import styles from './Score.module.css'
 import CustomLabel from "./CustomLabel"
 
 const Score = (props) => {
-
-  const formatter = (value) => {
-    return `${value}` * 100 + '%'
-  }
 
   const data = [
     { name: 'filler', value: props.score},
@@ -17,12 +13,11 @@ const Score = (props) => {
 
   return (
     <div className={styles.container}>
-      <p>score de ouf</p>
-      <p>{formatter(`${props.score}`)} = props.score formaté * 100</p>
-      {/*<p>{props.score}</p>*/}
-
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={400} height={400}>
+      <div className={styles.title}>
+        Score
+      </div>
+      <ResponsiveContainer width="100%" height="100%" >
+        <PieChart >
           <Pie
             dataKey="value"
             isAnimationActive={false}
@@ -38,16 +33,13 @@ const Score = (props) => {
           >
             {data.map((entry, index) => {
               if (index === 0) {
-                return <Cell key={`cell-${index}`} fill="#FF0000" cornerRadius={"50"}
-                />
+                return <Cell key={`cell-${index}`} fill={"#FF0000"} cornerRadius={"50"} />
               }
-              return <Cell key={`cell-${index}`} fill="#FBFBFB" />
+              return <Cell key={`cell-${index}`} fill={"#ffffff"} />
             })}
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-
-
     </div>
   )
 }

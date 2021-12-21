@@ -1,4 +1,21 @@
 .container {
+  position: relative;
   width: 258px;
   height: 263px;
+  background-color: #FBFBFB;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  align-items: center;
+
+  /*outline: 2px solid;*/
+  /*margin: 3vh;*/
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+  padding: 8px;
+}
+
+.title {
+  position: absolute;
+  top: 24px;
+  left: 30px;
 }

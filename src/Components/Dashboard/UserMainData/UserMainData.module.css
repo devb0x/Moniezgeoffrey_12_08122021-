@@ -6,6 +6,15 @@ aside {
   float: right;
 }
 
+.title {
+  width: fit-content;
+  margin-left: 2rem;
+}
+
+.message {
+  margin-left: 2rem;
+}
+
 .data {
   align-self: center;
   margin: auto;

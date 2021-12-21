@@ -2,4 +2,10 @@
   /*outline: 1px solid red;*/
   width: fit-content;
   margin: 2rem;
+
+
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
 }
+

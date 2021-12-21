@@ -17,11 +17,10 @@ const RadarActivity = (props) => {
     for (let i = 0; i < props.performance.data.length; i++) {
       props.performance.data[i].kind = props.performance.kind[i + 1]
     }
-    // console.log(el)
   })
   // console.log(props.performance.data)
-  props.performance.data = [...props.performance.data].reverse()
   // console.log(props.performance.data)
+  props.performance.data = [...props.performance.data].reverse()
 
   return (
     <div className={styles.container}>

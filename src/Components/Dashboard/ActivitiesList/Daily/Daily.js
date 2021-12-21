@@ -23,21 +23,26 @@ const Daily = (props) => {
   }, [])
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
 
       <BarChart
         data={props.activity.sessions}
         width={835}
         height={320}
+        margin={{
+          top: 80,
+          right: 26,
+          left: 26,
+          bottom: 23
+        }}
       >
         <XAxis
           dataKey="day"
           stroke={'#9B9EAC'}
           dy={15}
+          tickLine={false}
         />
         <YAxis
-          // dataKey="kilogram"
-          // domain={[65, 'dataMax']}
           stroke={'#9B9EAC'}
           orientation={'right'}
           dx={15}
@@ -45,18 +50,10 @@ const Daily = (props) => {
           tickLine={false}
           tickCount={3}
         />
-        {/*<Tooltip wrapperStyle={{ width: 100, backgroundColor: '#30ea05' }} />*/}
-        <Tooltip
-          content={CustomizedTooltipDaily}
-          // data={props.activity.sessions}
-          // payload={[{
-          //   unit1: 'kg',
-          //   unit2: 'Kcal'
-          // }]}
-        />
+        <Tooltip content={CustomizedTooltipDaily} />
         <Legend
           width={277}
-          wrapperStyle={{ top: -52, right: 26, backgroundColor: 'transparent', lineHeight: '40px' }}
+          wrapperStyle={{ top: 24 , right: 26, backgroundColor: 'transparent', lineHeight: '40px' }}
           align={"right"}
           iconType={'circle'}
           iconSize={8}
@@ -70,7 +67,7 @@ const Daily = (props) => {
               {
                 value: 'Calories brûlées (kCal)',
                 type: 'circle',
-                color: 'red'
+                color: '#E60000'
               }
             ]
           }
@@ -90,14 +87,13 @@ const Daily = (props) => {
         />
         <Bar
           dataKey="calories"
-          fill="#E60000"
+          fill={"#E60000"}
           barSize={7}
           radius={[3, 3, 0, 0]}
         />
       </BarChart>
 
-
-      {/*<h2 className={styles.title}>Activité quotidienne</h2>*/}
+      <h2 className={styles.title}>Activité quotidienne</h2>
     </div>
   )
 }
