@@ -3,10 +3,9 @@ import React, {useEffect, useState} from "react"
 import styles from './Daily.module.css'
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
-import CustomizedTooltipDaily from "../../../UI/CustomizedTooltipDaily"
+import CustomizedTooltipDaily from "./CustomizedTooltipDaily"
 
 const Daily = (props) => {
-  // console.log(props.activity.sessions)
 
   const [data, setData] = useState([])
 

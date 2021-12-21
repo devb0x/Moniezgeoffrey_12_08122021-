@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, {useState} from 'react';
+
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomizedTooltipSessions from "./CustomizedTooltipSessions"
 
 import styles from './Sessions.module.css'
@@ -9,40 +10,22 @@ const Sessions = (props) => {
   let options = {
     weekday: 'narrow'
   }
-  const test = new Date(1901, 3, 1, options)
+  const test = new Date(1901, 3, 1)
   console.log(test)
-  // console.log(props.sessions[1].day)
-  // const test = new Date(1)
-  // console.log(test.getDay())
-  //
-  // Date.prototype.getWeekDay = function() {
-  //   let weekday = ["L", "M", "M", "J", "V", "S", "D"];
-  //   return weekday[this.getDay()];
-  // }
-  //
-  // console.log(test.getWeekDay())
 
-
-  const [data, setData] = useState([])
-
-
-  // props.performance.data.forEach(el => {
-  //   for (let i = 0; i < props.performance.data.length; i++) {
-  //     props.performance.data[i].kind = props.performance.kind[i + 1]
-  //   }
-  //   // console.log(el)
-  // })
   let weekday = ["L", "M", "M", "J", "V", "S", "D"];
 
   /**
    * convert number to string
    */
-  // props.sessions.forEach(el => {
-  //   for (let i = 0; i < props.sessions.length; i++) {
-  //     props.sessions[i].day = weekday[i]
-  //   }
-  //   console.log(el)
-  // })
+  props.sessions.forEach(el => {
+    for (let i = 0; i < props.sessions.length; i++) {
+      props.sessions[i].day = weekday[i]
+    }
+    console.log(el)
+  })
+
+
 
 
   // let options = {
@@ -54,6 +37,9 @@ const Sessions = (props) => {
   // let prnDt = 'Printed on ' + new Date().toLocaleTimeString('fr-FR', options);
   //
   // console.log(prnDt);
+
+  // if day: 1 => day: 'L'
+  // if day: 1 plusieurs fois, les aditionner
 
   return (
     <div className={styles.container}>
@@ -84,7 +70,6 @@ const Sessions = (props) => {
               strokeWidth: 32,
             }}
           />
-          {/*<Legend />*/}
           <Line
             type="monotone"
             dataKey="sessionLength"

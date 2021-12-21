@@ -1,5 +1,5 @@
 import React from "react"
-import {PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend} from 'recharts';
+import {PieChart, Pie, Cell, ResponsiveContainer, Label} from 'recharts';
 
 import styles from './Score.module.css'
 import CustomLabel from "./CustomLabel"
@@ -26,10 +26,8 @@ const Score = (props) => {
             cy="50%"
             innerRadius={70}
             outerRadius={80}
-            fill="#FBFBFB"
             startAngle={90}
             endAngle={450}
-            label={ <CustomLabel score={props.score} /> }
           >
             {data.map((entry, index) => {
               if (index === 0) {
@@ -37,12 +35,12 @@ const Score = (props) => {
               }
               return <Cell key={`cell-${index}`} fill={"#ffffff"} />
             })}
+            <Label content={ <CustomLabel score={props.score}  /> } />
           </Pie>
         </PieChart>
       </ResponsiveContainer>
     </div>
   )
 }
-
 
 export default Score

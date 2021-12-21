@@ -1,14 +1,12 @@
-import React, {useState} from "react"
+import React from "react"
 import { useParams } from "react-router-dom";
 
 
 import styles from './Dashboard.module.css'
 import UserMainData from "./UserMainData/UserMainData"
 import ActivitiesList from "./ActivitiesList/ActivitiesList"
-import {USER_MAIN_DATA} from "../../public/data"
 
 const Dashboard = (props) => {
-  const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
 
   const { id } = useParams()
 

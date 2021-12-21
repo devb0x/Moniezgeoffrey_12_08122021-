@@ -1,25 +1,15 @@
-import React, {useState} from "react"
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import React from "react"
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 import styles from './RadarActivity.module.css'
 
-// USER_PERFORMANCE
-
 const RadarActivity = (props) => {
-  // const perf = [perf, setPerf] = useState('')
-
-  // props.performance.data.forEach(el => {
-  //   console.log(el)
-  // })
-  // console.log(props.performance.data)
 
   props.performance.data.forEach(el => {
     for (let i = 0; i < props.performance.data.length; i++) {
       props.performance.data[i].kind = props.performance.kind[i + 1]
     }
   })
-  // console.log(props.performance.data)
-  // console.log(props.performance.data)
   props.performance.data = [...props.performance.data].reverse()
 
   return (

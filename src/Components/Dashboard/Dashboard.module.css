@@ -1,6 +1,4 @@
 .dashboard {
-  margin-left: 120px;
   max-width: 1200px;
-  margin-right: auto;
-  margin: 4.25rem auto;
+  margin: 4.25rem auto auto 120px;
 }

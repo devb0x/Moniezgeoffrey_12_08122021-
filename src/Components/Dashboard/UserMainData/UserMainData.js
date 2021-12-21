@@ -5,7 +5,6 @@ import styles from './UserMainData.module.css'
 import Card from '../../UI/Card'
 
 const UserMainData = (props) => {
-  // console.log(props.data)
 
   return (
     <Fragment>
@@ -13,7 +12,7 @@ const UserMainData = (props) => {
         Bonjour <span className={styles.firstname}>{props.data.userInfos.firstName}</span>
       </h1>
       <div className={styles.message}>
-        Félicitation ! Vous avez explosé vos objectifs hier 👏
+        Félicitation ! Vous avez explosé vos objectifs hier <span role="img" aria-label="hands clap">👏</span>
       </div>
 
       <aside>
