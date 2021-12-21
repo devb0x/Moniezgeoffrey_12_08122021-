@@ -42,7 +42,7 @@ const Sessions = (props) => {
         fill="rgba(0, 0, 0, 0.1)"
         // stroke="rgba(0, 0, 0, 0.1)"
         // strokeWidth={0}
-        x={x}
+        x={x - 18}
         y={0}
         width={width}
         height={500}
