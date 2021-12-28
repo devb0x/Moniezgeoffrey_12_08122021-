@@ -1,51 +1,50 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
 import CustomizedTooltipSessions from "./CustomizedTooltipSessions"
 
 import styles from './Sessions.module.css'
 
+const formaterTick = (val) => {
+ 
+  switch (val) {
+    case  1: 
+      return "L";
+    case  2:
+      return "M"
+    case  3: 
+      return "M"
+    case  4: 
+      return "J"
+    case  5: 
+      return "V"
+    case 6: 
+      return "S"
+    case 7: 
+      return "D"
+    default:
+      return null
+ }
+
+}
+
 const Sessions = (props) => {
-
-  // /**
-  //  * convert number to string
-  //  */
-  // props.sessions.forEach(el => {
-  //   for (let i = 0; i < props.sessions.length; i++) {
-  //     props.sessions[i].day = weekday[i]
-  //   }
-  //   console.log(el)
-  // })
-
-  // const [data, setData] = useState(props.sessions)
-  //
-  // console.log(data)
-  const weekday = ["L", "M", "M", "J", "V", "S", "D"];
-
-  props.sessions.forEach((el, index) => {
-    if(el.day === index + 1 ) {
-      el.day = `${weekday[index]}`
-      console.log(el)
-    }
-  })
 
   /**
    * cursor
    */
   const CustomCursor = (props) => {
-    const { points, width, height, stroke } = props;
-    const { x, y } = points[0];
-    const { x1, y1 } = points[1];
-    // console.log(props);
+    const { points, width } = props;
+    const { x } = points[0];
+    console.log(props);
+    console.log(points)
     return (
       <Rectangle
         fill="rgba(0, 0, 0, 0.1)"
-        // stroke="rgba(0, 0, 0, 0.1)"
-        // strokeWidth={0}
         x={x - 18}
         y={0}
-        width={width}
-        height={500}
+        width={width + 50}
+        height={263}
       />
     );
   };
@@ -71,27 +70,23 @@ const Sessions = (props) => {
             tick={{stroke: 'white'}}
             stroke={'false'}
             fontSize={12}
+            tickFormatter={formaterTick}
           />
           <Tooltip
             content={CustomizedTooltipSessions}
-            // cursor={{
-            //   stroke: "rgba(0, 0, 0, 0.1)",
-            //   strokeWidth: 32,
-            //   strokeHeight: 100
-            // }}
             cursor={<CustomCursor />}
           />
           <Line
             type="monotone"
             dataKey="sessionLength"
             stroke={"#fff"}
+            strokeWidth={2}
             dot={false}
             activeDot={{ r: 5 }}
           />
         </LineChart>
       </ResponsiveContainer>
     </div>
-
   );
 }
 

@@ -1,10 +1,13 @@
-import React, {Fragment} from "react"
+import React, {Fragment, useEffect} from "react"
 
 import styles from './UserMainData.module.css'
 
 import Card from '../../UI/Card'
 
 const UserMainData = (props) => {
+  console.warn(props)
+  // console.log(props.data.userInfos)
+  // console.log(props.data.userInfos.firstName)
 
   return (
     <Fragment>

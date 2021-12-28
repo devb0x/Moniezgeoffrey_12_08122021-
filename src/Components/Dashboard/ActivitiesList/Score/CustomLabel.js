@@ -14,6 +14,7 @@ const CustomLabel = (props) => {
             fontWeight: 700,
             fontSize: "26px",
             fill: "#000",
+            strokeWidth: 12
           }}
         >
           {formatter(props.score)}

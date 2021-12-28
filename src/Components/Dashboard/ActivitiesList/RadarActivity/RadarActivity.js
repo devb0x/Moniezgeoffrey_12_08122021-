@@ -40,9 +40,7 @@ const RadarActivity = (props) => {
           />
         </RadarChart>
       </ResponsiveContainer>
-
     </div>
-
   )
 }
 

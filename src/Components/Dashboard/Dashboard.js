@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { useParams } from "react-router-dom";
 
 
@@ -6,7 +6,45 @@ import styles from './Dashboard.module.css'
 import UserMainData from "./UserMainData/UserMainData"
 import ActivitiesList from "./ActivitiesList/ActivitiesList"
 
+import  {getUserActivity, getUserMainData, getUserPerformance, getUserSessions} from "../../api/axios"
+
+import axios from "axios"
+
+
 const Dashboard = (props) => {
+  // const [userMainData, setUserMainData] = useState([])
+
+  console.log(props)
+
+  // useEffect(() => { // OKAY
+  //   axios.get('http://localhost:3000/user/18')
+  //     .then(res => {
+  //     // console.log(res)
+  //     // console.log(res.data)
+  //     // console.log(res.data.data)
+  //       setUserMainData(res.data.data)
+  //     //   setUserMainData(...userMainData, res.data.data)
+  //     })
+  // }, [])
+
+  //   let data = []
+  // useEffect(() => {
+  //   const fetchMainData = async () => {
+  //     const result = await axios.get('http://localhost:3000/user/18')
+  //     // console.log(result.data.data)
+  //     data.push(result.data.data)
+  //     console.log(data)
+  //     // setUserMainData(data)
+  //   }
+  //   fetchMainData()
+  // }, [])
+  //
+  //
+  // useEffect(() => {
+  //   setUserMainData(data)
+  // }, [])
+
+
 
   const { id } = useParams()
 
@@ -37,6 +75,26 @@ const Dashboard = (props) => {
       />
     </div>
   )
+
+  // return (
+  //   <div className={styles.dashboard}>
+  //     <UserMainData data={userMainData} />
+  //   </div>
+  // )
+
+
+  // return (
+  //   <div className={styles.dashboard}>
+  //     <div>
+  //       {userMainData.score}
+  //     </div>
+  //     {userMainData.userInfos && // WHY !?
+  //       <div>
+  //         <p>{userMainData.userInfos.firstName}</p>
+  //       </div>
+  //     }
+  //   </div>
+  // )
 }
 
 export default Dashboard

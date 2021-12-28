@@ -18,6 +18,16 @@ const Score = (props) => {
       </div>
       <ResponsiveContainer width="100%" height="100%" >
         <PieChart >
+          <foreignObject
+            x={45}
+            y={45}
+            width={150}
+            height={150}
+            style={{
+              backgroundColor: '#fff',
+              borderRadius: '50%',
+            }}>
+          </foreignObject>
           <Pie
             dataKey="value"
             isAnimationActive={false}
@@ -33,7 +43,7 @@ const Score = (props) => {
               if (index === 0) {
                 return <Cell key={`cell-${index}`} fill={"#FF0000"} cornerRadius={"50"} />
               }
-              return <Cell key={`cell-${index}`} fill={"#ffffff"} />
+              return <Cell key={`cell-${index}`} fill={"#FBFBFB"} />
             })}
             <Label content={ <CustomLabel score={props.score}  /> } />
           </Pie>
