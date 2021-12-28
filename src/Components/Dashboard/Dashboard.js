@@ -11,90 +11,84 @@ import  {getUserActivity, getUserMainData, getUserPerformance, getUserSessions} 
 import axios from "axios"
 
 
-const Dashboard = (props) => {
-  // const [userMainData, setUserMainData] = useState([])
-
-  console.log(props)
-
-  // useEffect(() => { // OKAY
-  //   axios.get('http://localhost:3000/user/18')
-  //     .then(res => {
-  //     // console.log(res)
-  //     // console.log(res.data)
-  //     // console.log(res.data.data)
-  //       setUserMainData(res.data.data)
-  //     //   setUserMainData(...userMainData, res.data.data)
-  //     })
-  // }, [])
-
-  //   let data = []
-  // useEffect(() => {
-  //   const fetchMainData = async () => {
-  //     const result = await axios.get('http://localhost:3000/user/18')
-  //     // console.log(result.data.data)
-  //     data.push(result.data.data)
-  //     console.log(data)
-  //     // setUserMainData(data)
-  //   }
-  //   fetchMainData()
-  // }, [])
-  //
-  //
-  // useEffect(() => {
-  //   setUserMainData(data)
-  // }, [])
-
-
+const Dashboard = () => {
+  const [userMainData, setUserMainData] = useState([])
+  const [userActivity, setUserActivity] = useState([])
+  const [userAverageSessions, setUserAverageSessions] = useState([])
+  const [userPerformance, setUserPerformance] = useState([])
 
   const { id } = useParams()
 
-  const userData = props.data.filter(
-    el => parseInt(el.id) === parseInt(id)
-  )
+  // console.log(id)
+  //
+  let userId
 
-  const userActivity = props.activity.filter(
-    el => parseInt(el.userId) === parseInt(id)
-  )
+  useEffect(() => {
+    userId = id
+  }, [id])
 
-  const userPerformance = props.performance.filter(
-    el => parseInt(el.userId) === parseInt(id)
-  )
+  useEffect(() => { // OKAY
+    axios.get(`http://localhost:3000/user/${userId}`)
+      .then(res => {
+        setUserMainData(res.data.data)
+      })
+  }, [userId])
 
-  const userSessions = props.sessions.filter(
-    el => parseInt(el.userId) === parseInt(id)
-  )
+  useEffect(() => {
+    axios.get(`http://localhost:3000/user/${userId}/activity`)
+      .then(res => {
+        setUserActivity(res.data.data)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get(`http://localhost:3000/user/${userId}/average-sessions`)
+      .then(res => {
+        setUserAverageSessions(res.data.data)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get(`http://localhost:3000/user/${userId}/performance`)
+      .then(res => {
+        setUserPerformance(res.data.data)
+      })
+  }, [])
+
+
+
+  // const { id } = useParams()
+  //
+  // const userData = props.data.filter(
+  //   el => parseInt(el.id) === parseInt(id)
+  // )
+  //
+  // const userActivity = props.activity.filter(
+  //   el => parseInt(el.userId) === parseInt(id)
+  // )
+  //
+  // const userPerformance = props.performance.filter(
+  //   el => parseInt(el.userId) === parseInt(id)
+  // )
+  //
+  // const userSessions = props.sessions.filter(
+  //   el => parseInt(el.userId) === parseInt(id)
+  // )
 
   return (
     <div className={styles.dashboard}>
-      <UserMainData data={userData[0]}/>
-      <ActivitiesList
-        data={userData[0]}
-        sessions={userSessions[0]}
-        activity={userActivity[0]}
-        performance={userPerformance[0]}
-      />
+      <UserMainData data={userMainData}/>
+      {/*<ActivitiesList*/}
+      {/*  data={userMainData}*/}
+      {/*  sessions={userAverageSessions}*/}
+      {/*  activity={userActivity}*/}
+      {/*  performance={userPerformance}*/}
+      {/*/>*/}
     </div>
   )
 
-  // return (
-  //   <div className={styles.dashboard}>
-  //     <UserMainData data={userMainData} />
-  //   </div>
-  // )
 
 
-  // return (
-  //   <div className={styles.dashboard}>
-  //     <div>
-  //       {userMainData.score}
-  //     </div>
-  //     {userMainData.userInfos && // WHY !?
-  //       <div>
-  //         <p>{userMainData.userInfos.firstName}</p>
-  //       </div>
-  //     }
-  //   </div>
-  // )
 }
 
 export default Dashboard

@@ -12,33 +12,22 @@ import {USER_PERFORMANCE} from "./public/data"
 import {USER_AVERAGE_SESSIONS} from "./public/data"
 import getUserMainData from "./api/axios"
 import axios from "axios"
+import Dummy from "./Components/Dummy/Dummy"
 
 function App() {
-  const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
-  // const [userMainData, setUserMainData] = useState([])
-  const [userActivity, setUserActivity] = useState(USER_ACTIVITY)
-  const [userPerformance, setUserPerformance] = useState(USER_PERFORMANCE)
-  const [userAverageSessions, setUserAverageSessions] = useState(USER_AVERAGE_SESSIONS)
+  // const [userMainData, setUserMainData] = useState(USER_MAIN_DATA)
+  // const [userActivity, setUserActivity] = useState(USER_ACTIVITY)
+  // const [userPerformance, setUserPerformance] = useState(USER_PERFORMANCE)
+  // const [userAverageSessions, setUserAverageSessions] = useState(USER_AVERAGE_SESSIONS)
 
-  // useEffect(() => {
-  //   fetchData()
-  // }, [])
-  //
-  // const fetchData = async () => {
-  //   let data = []
-  //   await axios.get(`http://localhost:3000/user/18`).then(res => {
-  //     console.log(res.data.data)
-  //     return data.push(res.data.data)
-  //   })
-  //     .then(() => {
-  //       console.log('juste comme ca')
-  //       console.log(data)
-  //       setUserMainData(data)
-  //     })
-  //     .then(() => {
-  //       // console.log('another log data')
-  //     })
-  // }
+
+
+  // const { userId } = useParams()
+
+  // let userId = useParams()
+
+
+
 
   return (
     <Fragment >
@@ -57,14 +46,23 @@ function App() {
             <Route
               path={"/user/:id"}
               element={
-                <Dashboard
-                  data={userMainData}
-                  activity={userActivity}
-                  performance={userPerformance}
-                  sessions={userAverageSessions}
-                />
-              }>
-            </Route>
+                <Dashboard />
+              }
+            />
+
+            {/* DUMMY ROUTE */}
+
+            {/*<Route*/}
+            {/*  path={"/user/:id"}*/}
+            {/*  element={*/}
+            {/*    <Dummy*/}
+            {/*      // data={userMainData}*/}
+            {/*      // activity={userActivity}*/}
+            {/*      // sessions={userAverageSessions}*/}
+            {/*      // performance={userPerformance}*/}
+            {/*    />*/}
+            {/*  }*/}
+            {/*/>*/}
 
           </Routes>
         </Router>
