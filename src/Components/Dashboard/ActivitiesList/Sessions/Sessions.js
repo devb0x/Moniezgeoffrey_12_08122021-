@@ -6,7 +6,6 @@ import CustomizedTooltipSessions from "./CustomizedTooltipSessions"
 import styles from './Sessions.module.css'
 
 const formaterTick = (val) => {
- 
   switch (val) {
     case  1: 
       return "L";
@@ -25,7 +24,6 @@ const formaterTick = (val) => {
     default:
       return null
  }
-
 }
 
 const Sessions = (props) => {

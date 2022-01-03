@@ -3,8 +3,10 @@ import {PieChart, Pie, Cell, ResponsiveContainer, Label} from 'recharts';
 
 import styles from './Score.module.css'
 import CustomLabel from "./CustomLabel"
+import PropTypes from "prop-types"
 
 const Score = (props) => {
+  console.log(props)
 
   const data = [
     { name: 'filler', value: props.score},
@@ -54,3 +56,7 @@ const Score = (props) => {
 }
 
 export default Score
+
+Score.propTypes = {
+  score: PropTypes.number
+}

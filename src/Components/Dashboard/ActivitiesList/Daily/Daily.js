@@ -6,26 +6,27 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'rec
 import CustomizedTooltipDaily from "./CustomizedTooltipDaily"
 
 const Daily = (props) => {
-
   const [data, setData] = useState([])
 
   useEffect(() => {
-    const dayAlreadyListed = []
-    for (let i = 0; i < props.activity.sessions.length; i++) {
-      const dayNumber = props.activity.sessions[i].day.split('-')[2]
-      if (!dayAlreadyListed.includes(dayNumber)) {
-        dayAlreadyListed.push(dayNumber)
-        props.activity.sessions[i].day = dayNumber
+    if (props.activity) {
+      const dayAlreadyListed = []
+      for (let i = 0; i < props.activity.length; i++) {
+        const dayNumber = props.activity[i].day.split('-')[2]
+        if (!dayAlreadyListed.includes(dayNumber)) {
+          dayAlreadyListed.push(dayNumber)
+          props.activity[i].day = dayNumber
+        }
       }
+      setData(props.activity)
     }
-    setData(props.activity.sessions)
   }, [])
 
   return (
     <div className={styles.container} >
 
       <BarChart
-        data={props.activity.sessions}
+        data={data}
         width={835}
         height={320}
         margin={{

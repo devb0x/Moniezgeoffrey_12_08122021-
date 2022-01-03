@@ -1,93 +1,74 @@
-import React, {useEffect, useState} from "react"
+import React, {Fragment, useEffect, useState} from "react"
 import { useParams } from "react-router-dom";
-
+import userAPI from "../../model";
 
 import styles from './Dashboard.module.css'
 import UserMainData from "./UserMainData/UserMainData"
 import ActivitiesList from "./ActivitiesList/ActivitiesList"
 
-import  {getUserActivity, getUserMainData, getUserPerformance, getUserSessions} from "../../api/axios"
-
-import axios from "axios"
-
 
 const Dashboard = () => {
-  const [userMainData, setUserMainData] = useState([])
+  const [userMainData, setUserMainData] = useState()
   const [userActivity, setUserActivity] = useState([])
   const [userAverageSessions, setUserAverageSessions] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const { id } = useParams()
+  let userId = null
 
-  // console.log(id)
-  //
-  let userId
+  const updateLoading = () => {
+    setIsLoaded(!isLoaded)
+  }
 
   useEffect(() => {
     userId = id
   }, [id])
 
-  useEffect(() => { // OKAY
-    axios.get(`http://localhost:3000/user/${userId}`)
+  useEffect(async () => {
+    await userAPI.getUserMainData(userId)
       .then(res => {
-        setUserMainData(res.data.data)
+        setUserMainData(res)
       })
+    await userAPI.getUserActivity(userId)
+      .then(res => {
+        setUserActivity(res)
+      })
+    await userAPI.getUserAverageSessions(userId)
+      .then(res => {
+        setUserAverageSessions(res)
+      })
+    await userAPI.getUserPerformance(userId)
+      .then(res => {
+        setUserPerformance(res)
+      })
+    updateLoading()
   }, [userId])
 
-  useEffect(() => {
-    axios.get(`http://localhost:3000/user/${userId}/activity`)
-      .then(res => {
-        setUserActivity(res.data.data)
-      })
-  }, [])
-
-  useEffect(() => {
-    axios.get(`http://localhost:3000/user/${userId}/average-sessions`)
-      .then(res => {
-        setUserAverageSessions(res.data.data)
-      })
-  }, [])
-
-  useEffect(() => {
-    axios.get(`http://localhost:3000/user/${userId}/performance`)
-      .then(res => {
-        setUserPerformance(res.data.data)
-      })
-  }, [])
-
-
-
-  // const { id } = useParams()
-  //
-  // const userData = props.data.filter(
-  //   el => parseInt(el.id) === parseInt(id)
-  // )
-  //
-  // const userActivity = props.activity.filter(
-  //   el => parseInt(el.userId) === parseInt(id)
-  // )
-  //
-  // const userPerformance = props.performance.filter(
-  //   el => parseInt(el.userId) === parseInt(id)
-  // )
-  //
-  // const userSessions = props.sessions.filter(
-  //   el => parseInt(el.userId) === parseInt(id)
-  // )
-
   return (
-    <div className={styles.dashboard}>
-      <UserMainData data={userMainData}/>
-      {/*<ActivitiesList*/}
-      {/*  data={userMainData}*/}
-      {/*  sessions={userAverageSessions}*/}
-      {/*  activity={userActivity}*/}
-      {/*  performance={userPerformance}*/}
-      {/*/>*/}
-    </div>
+    <Fragment>
+      {isLoaded &&
+        <div className={styles.dashboard}>
+          <UserMainData
+            userName={userMainData.userInfos.firstName}
+            calorie={userMainData.keyData.calorieCount}
+            protein={userMainData.keyData.proteinCount}
+            carbohydrate={userMainData.keyData.carbohydrateCount}
+            lipid={userMainData.keyData.lipidCount}
+          />
+          <ActivitiesList
+            activity={userActivity}
+            sessions={userAverageSessions}
+            performance={userPerformance}
+            score={userMainData.score}
+          />
+        </div>
+      }
+      {!isLoaded &&
+        <div>Loading...</div>
+      }
+    </Fragment>
   )
-
-
 
 }
 

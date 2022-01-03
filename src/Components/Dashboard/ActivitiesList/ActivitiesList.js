@@ -11,10 +11,13 @@ const ActivitiesList = (props) => {
 
   return (
     <div className={styles.container}>
-      <Daily activity={props.activity} />
+      <Daily activity={props.activity.sessions} />
       <Sessions sessions={props.sessions.sessions} />
-      <RadarActivity performance={props.performance}/>
-      <Score score={props.data.score} />
+      <RadarActivity
+        performance={props.performance.data}
+        kind={props.performance.kind}
+      />
+      <Score score={props.score} />
     </div>
   )
 }
