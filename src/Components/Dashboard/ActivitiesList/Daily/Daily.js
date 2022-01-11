@@ -4,6 +4,7 @@ import styles from './Daily.module.css'
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import CustomizedTooltipDaily from "./CustomizedTooltipDaily"
+import PropTypes from "prop-types"
 
 const Daily = (props) => {
   const [data, setData] = useState([])
@@ -99,3 +100,11 @@ const Daily = (props) => {
 }
 
 export default Daily
+
+Daily.propTypes = {
+  activity: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.string,
+    kilogram: PropTypes.number,
+    calories: PropTypes.number
+  }))
+}

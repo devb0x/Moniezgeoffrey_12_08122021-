@@ -1,6 +1,7 @@
 import React from "react"
 
 import styles from './CustomizedTooltipSessions.module.css'
+import PropTypes from "prop-types"
 
 const CustomizedTooltipSessions = (props) => {
   if (props) {
@@ -14,3 +15,9 @@ const CustomizedTooltipSessions = (props) => {
 }
 
 export default CustomizedTooltipSessions
+
+CustomizedTooltipSessions.propTypes = {
+  payload: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.number
+  }))
+}

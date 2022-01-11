@@ -5,9 +5,8 @@ import styles from './RadarActivity.module.css'
 import PropTypes from "prop-types"
 
 const RadarActivity = (props) => {
-
   if (props.performance) {
-    props.performance.forEach(el => {
+    props.performance.forEach(() => {
       for (let i = 0; i < props.performance.length; i++) {
         props.performance[i].kind = props.kind[i + 1]
       }
@@ -54,5 +53,9 @@ const RadarActivity = (props) => {
 export default RadarActivity
 
 RadarActivity.propTypes = {
-  kind: PropTypes.object
+  kind: PropTypes.object,
+  performance: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.number,
+    kind: PropTypes.number
+  }))
 }

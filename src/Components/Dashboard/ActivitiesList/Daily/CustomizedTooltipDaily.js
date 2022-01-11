@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types"
 
 import styles from './CustomizedTooltipDaily.module.css'
 
@@ -19,3 +20,9 @@ const CustomizedTooltipDaily = (props) => {
 }
 
 export default CustomizedTooltipDaily;
+
+CustomizedTooltipDaily.propTypes = {
+  payload: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.number
+  }))
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types"
 
 const CustomLabel = (props) => {
 
@@ -46,3 +47,7 @@ const CustomLabel = (props) => {
 };
 
 export default CustomLabel;
+
+CustomLabel.propTypes = {
+  score: PropTypes.number
+}

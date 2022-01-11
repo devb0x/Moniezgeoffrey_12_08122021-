@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types"
 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
 import CustomizedTooltipSessions from "./CustomizedTooltipSessions"
@@ -27,7 +28,6 @@ const formaterTick = (val) => {
 }
 
 const Sessions = (props) => {
-
   /**
    * cursor
    */
@@ -44,8 +44,8 @@ const Sessions = (props) => {
         width={width + 50}
         height={263}
       />
-    );
-  };
+    )
+  }
 
   return (
     <div className={styles.container}>
@@ -85,7 +85,14 @@ const Sessions = (props) => {
         </LineChart>
       </ResponsiveContainer>
     </div>
-  );
+  )
 }
 
 export default Sessions;
+
+Sessions.propTypes = {
+  sessions: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.number,
+    sessionLength: PropTypes.number
+  }))
+}

@@ -1,8 +1,9 @@
-import serviceBack from "./service"
+import serviceBack, { mock } from "./service"
 
 export default class userAPI {
   static getUserMainData(userId) {
     return serviceBack.getUserMainData(userId)
+    // return mock.getUserMainData(userId)
       .then(data => {
         return {
           id: data.id,
@@ -15,6 +16,7 @@ export default class userAPI {
 
   static getUserActivity(userId) {
     return serviceBack.getUserActivity(userId)
+    // return mock.getUserActivity(userId)
       .then(data => {
         return {
           userId: data.userId,
@@ -25,6 +27,7 @@ export default class userAPI {
 
   static getUserAverageSessions(userId) {
     return serviceBack.getUserAverageSessions(userId)
+    // return mock.getUserAverageSessions(userId)
       .then(data => {
         return {
           userId: data.userId,
@@ -35,6 +38,7 @@ export default class userAPI {
 
   static getUserPerformance(userId) {
     return serviceBack.getUserPerformance(userId)
+    // return mock.getUserPerformance(userId)
       .then(data => {
         return {
           userId: data.userId,

@@ -8,11 +8,12 @@ import ActivitiesList from "./ActivitiesList/ActivitiesList"
 
 
 const Dashboard = () => {
-  const [userMainData, setUserMainData] = useState()
+  const [userMainData, setUserMainData] = useState([])
   const [userActivity, setUserActivity] = useState([])
   const [userAverageSessions, setUserAverageSessions] = useState([])
   const [userPerformance, setUserPerformance] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
+  const [error, setError] = useState('')
 
   const { id } = useParams()
   let userId = null
@@ -25,25 +26,36 @@ const Dashboard = () => {
     userId = id
   }, [id])
 
-  useEffect(async () => {
-    await userAPI.getUserMainData(userId)
-      .then(res => {
-        setUserMainData(res)
-      })
-    await userAPI.getUserActivity(userId)
-      .then(res => {
-        setUserActivity(res)
-      })
-    await userAPI.getUserAverageSessions(userId)
-      .then(res => {
-        setUserAverageSessions(res)
-      })
-    await userAPI.getUserPerformance(userId)
-      .then(res => {
-        setUserPerformance(res)
-      })
-    updateLoading()
+  useEffect( () => {
+    Promise.all([
+      userAPI.getUserMainData(userId)
+        .then(res => {
+          setUserMainData(res)
+        }),
+      userAPI.getUserActivity(userId)
+        .then(res => {
+          setUserActivity(res)
+        }),
+      userAPI.getUserAverageSessions(userId)
+        .then(res => {
+          setUserAverageSessions(res)
+        }),
+      userAPI.getUserPerformance(userId)
+        .then(res => {
+          setUserPerformance(res)
+        }),
+    ])
+    .then(updateLoading)
+    .catch(err => {
+      setError(err)
+    })
   }, [userId])
+
+  if(error) {
+    return <div className={styles.dashboard}>
+      Impossible de récupérer les données.
+    </div>
+  }
 
   return (
     <Fragment>
@@ -65,7 +77,7 @@ const Dashboard = () => {
         </div>
       }
       {!isLoaded &&
-        <div>Loading...</div>
+        <div className={styles.dashboard}>Loading...</div>
       }
     </Fragment>
   )

@@ -1,11 +1,11 @@
-import React, {Fragment, useEffect} from "react"
+import React, {Fragment} from "react"
 
 import styles from './UserMainData.module.css'
 
 import Card from '../../UI/Card'
+import PropTypes from "prop-types"
 
 const UserMainData = (props) => {
-  console.log(props)
 
   return (
     <Fragment>
@@ -53,5 +53,10 @@ const UserMainData = (props) => {
 
 export default UserMainData
 
-// userName = string
-// calorie = number
+UserMainData.propTypes = {
+  userName: PropTypes.string,
+  calorie: PropTypes.number,
+  protein: PropTypes.number,
+  carbohydrate: PropTypes.number,
+  lipid: PropTypes.number,
+}

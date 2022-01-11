@@ -6,8 +6,6 @@ import CustomLabel from "./CustomLabel"
 import PropTypes from "prop-types"
 
 const Score = (props) => {
-  console.log(props)
-
   const data = [
     { name: 'filler', value: props.score},
     { name: 'forGrayBackground', value: (1 - props.score)}
