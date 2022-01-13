@@ -6,7 +6,11 @@ import styles from './Dashboard.module.css'
 import UserMainData from "./UserMainData/UserMainData"
 import ActivitiesList from "./ActivitiesList/ActivitiesList"
 
-
+/**
+ * Dashboard Component
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Dashboard = () => {
   const [userMainData, setUserMainData] = useState([])
   const [userActivity, setUserActivity] = useState([])

@@ -8,6 +8,12 @@ import RadarActivity from "./RadarActivity/RadarActivity"
 import Score from "./Score/Score"
 import Sessions from "./Sessions/Sessions"
 
+/**
+ * ActivityList Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ActivitiesList = (props) => {
   return (
     <div className={styles.container}>

@@ -2,6 +2,11 @@ import React from "react"
 
 import styles from './NavTop.module.css'
 
+/**
+ * NavTop Component
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const NavTop = () => {
   return (
       <header>

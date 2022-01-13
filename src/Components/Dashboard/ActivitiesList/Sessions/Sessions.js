@@ -6,6 +6,11 @@ import CustomizedTooltipSessions from "./CustomizedTooltipSessions"
 
 import styles from './Sessions.module.css'
 
+/**
+ * formater function, replacing number of the day by first letter
+ * @param val
+ * @returns {string|null}
+ */
 const formaterTick = (val) => {
   switch (val) {
     case  1: 
@@ -27,6 +32,12 @@ const formaterTick = (val) => {
  }
 }
 
+/**
+ * Sessions Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Sessions = (props) => {
   /**
    * cursor

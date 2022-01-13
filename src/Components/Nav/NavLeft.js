@@ -2,6 +2,11 @@ import React from "react"
 
 import styles from './NavLeft.module.css'
 
+/**
+ * NavLeft Component
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const NavLeft = () => {
   return (
     <nav className={`${styles['nav-left']}`}>

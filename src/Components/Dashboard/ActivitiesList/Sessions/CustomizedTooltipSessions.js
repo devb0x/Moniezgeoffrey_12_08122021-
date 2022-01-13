@@ -3,6 +3,12 @@ import React from "react"
 import styles from './CustomizedTooltipSessions.module.css'
 import PropTypes from "prop-types"
 
+/**
+ * CustomizedTooltipSessions Component
+ * @param props
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
 const CustomizedTooltipSessions = (props) => {
   if (props) {
     return (

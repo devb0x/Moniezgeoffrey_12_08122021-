@@ -3,6 +3,12 @@ import PropTypes from "prop-types"
 
 import styles from './CustomizedTooltipDaily.module.css'
 
+/**
+ * CustomizedTooltipDaily Component
+ * @param props
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
 const CustomizedTooltipDaily = (props) => {
   if (props) {
     return (

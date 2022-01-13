@@ -5,6 +5,12 @@ import styles from './UserMainData.module.css'
 import Card from '../../UI/Card'
 import PropTypes from "prop-types"
 
+/**
+ * UserMainData Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UserMainData = (props) => {
 
   return (

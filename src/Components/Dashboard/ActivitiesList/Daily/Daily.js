@@ -6,6 +6,12 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'rec
 import CustomizedTooltipDaily from "./CustomizedTooltipDaily"
 import PropTypes from "prop-types"
 
+/**
+ * Daily Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Daily = (props) => {
   const [data, setData] = useState([])
 

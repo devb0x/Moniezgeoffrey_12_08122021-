@@ -1,8 +1,19 @@
 import React from 'react';
 import PropTypes from "prop-types"
 
+/**
+ * CustomLabel Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const CustomLabel = (props) => {
 
+  /**
+   * formatter function for rendering the score on %
+   * @param value
+   * @returns {string}
+   */
   const formatter = (value) => {
     return `${value}` * 100 + '%'
   }

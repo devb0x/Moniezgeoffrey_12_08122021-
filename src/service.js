@@ -1,5 +1,10 @@
 import axios from "axios"
 
+/**
+ * @constant
+ * @type {{todayScore: number, keyData: {proteinCount: number, calorieCount: number, lipidCount: number, carbohydrateCount: number},
+ * userInfos: {firstName: string, lastName: string, age: number}, id: number}}
+ */
 const mockedMainData = {
   id: 12,
   userInfos: {
@@ -7,7 +12,7 @@ const mockedMainData = {
     lastName: 'lastName',
     age: 47,
   },
-  todayScore: 0.12,
+  todayScore: 0.75,
   keyData: {
     calorieCount: 12,
     proteinCount: 155,
@@ -15,6 +20,13 @@ const mockedMainData = {
     lipidCount: 50
   }
 }
+
+/**
+ * @constant
+ * @type {{sessions: [{calories: number, kilogram: number, day: string}, {calories: number, kilogram: number, day: string},
+ * {calories: number, kilogram: number, day: string}, {calories: number, kilogram: number, day: string},
+ * {calories: number, kilogram: number, day: string}, null, null], userId: number}}
+ */
 const mockedActivity = {
   userId: 12,
   sessions: [
@@ -55,6 +67,12 @@ const mockedActivity = {
     }
   ]
 }
+
+/**
+ * @constant
+ * @type {{sessions: [{sessionLength: number, day: number}, {sessionLength: number, day: number}, {sessionLength: number, day: number},
+ * {sessionLength: number, day: number}, {sessionLength: number, day: number}, null, null], userId: number}}
+ */
 const mockedAverageSessions = {
   userId: 12,
   sessions: [
@@ -88,6 +106,14 @@ const mockedAverageSessions = {
     }
   ]
 }
+
+/**
+ * @constant
+ * @type {{data: [{kind: number, value: number}, {kind: number, value: number}, {kind: number, value: number},
+ * {kind: number, value: number},
+ * {kind: number, value: number}, null], kind: {"1": string, "2": string, "3": string, "4": string, "5": string, "6": string},
+ * userId: number}}
+ */
 const mockedPerformance = {
   userId: 12,
   kind: {
@@ -126,42 +152,88 @@ const mockedPerformance = {
   ]
 }
 
+/**
+ * mock functions for fake data if no back-end
+ * @type {{getUserMainData: (function(): Promise<unknown>), getUserAverageSessions: (function(): Promise<unknown>),
+ * getUserActivity: (function(): Promise<unknown>), getUserPerformance: (function(): Promise<unknown>)}}
+ */
 export const mock = {
-  getUserMainData: (userId) => {
+  /**
+   * @function
+   * @returns {Promise<*>}
+   */
+  getUserMainData: () => {
     return new Promise((resolve) => {
       resolve(mockedMainData)
     })
   },
-  getUserActivity: (userId) => {
+  /**
+   * @function
+   * @returns {Promise<*>}
+   */
+  getUserActivity: () => {
     return new Promise((resolve) => {
       resolve(mockedActivity)
     })
   },
-  getUserAverageSessions: (userId) => {
+  /**
+   * @function
+   * @returns {Promise<*>}
+   */
+  getUserAverageSessions: () => {
     return new Promise((resolve) => {
       resolve(mockedAverageSessions)
     })
   },
-  getUserPerformance: (userId) => {
+  /**
+   * @function
+   * @returns {Promise<*>}
+   */
+  getUserPerformance: () => {
     return new Promise((resolve) => {
       resolve(mockedPerformance)
     })
   },
 }
 
+/**
+ *
+ * @type {{getUserMainData: (function(*): Promise<AxiosResponse<any>>), getUserAverageSessions: (function(*): Promise<AxiosResponse<any>>),
+ * getUserActivity: (function(*): Promise<AxiosResponse<any>>), getUserPerformance: (function(*): Promise<AxiosResponse<any>>)}}
+ */
 const serviceBack = {
+  /**
+   * @function
+   * @param userId
+   * @returns {Promise<AxiosResponse<*>>}
+   */
   getUserMainData: (userId) => {
     return axios.get(`http://localhost:3000/user/${userId}`)
       .then((result) => result.data.data)
   },
+  /**
+   * @function
+   * @param userId
+   * @returns {Promise<AxiosResponse<*>>}
+   */
   getUserActivity: (userId) => {
     return axios.get(`http://localhost:3000/user/${userId}/activity`)
       .then((result) => result.data.data)
   },
+  /**
+   * @function
+   * @param userId
+   * @returns {Promise<AxiosResponse<*>>}
+   */
   getUserAverageSessions: (userId) => {
     return axios.get(`http://localhost:3000/user/${userId}/average-sessions`)
       .then((result) => result.data.data)
   },
+  /**
+   * @function
+   * @param userId
+   * @returns {Promise<AxiosResponse<*>>}
+   */
   getUserPerformance: (userId) => {
     return axios.get(`http://localhost:3000/user/${userId}/performance`)
       .then((result) => result.data.data)

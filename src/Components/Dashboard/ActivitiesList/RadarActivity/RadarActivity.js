@@ -4,6 +4,12 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } fro
 import styles from './RadarActivity.module.css'
 import PropTypes from "prop-types"
 
+/**
+ * RadarActivity Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const RadarActivity = (props) => {
   if (props.performance) {
     props.performance.forEach(() => {

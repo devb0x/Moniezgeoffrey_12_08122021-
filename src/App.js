@@ -6,7 +6,6 @@ import NavTop from "./Components/Nav/NavTop"
 import NavLeft from "./Components/Nav/NavLeft"
 import Dashboard from "./Components/Dashboard/Dashboard"
 
-
 function App() {
 
   return (
@@ -29,20 +28,6 @@ function App() {
                 <Dashboard />
               }
             />
-
-            {/* DUMMY ROUTE */}
-
-            {/*<Route*/}
-            {/*  path={"/user/:id"}*/}
-            {/*  element={*/}
-            {/*    <Dummy*/}
-            {/*      // data={userMainData}*/}
-            {/*      // activity={userActivity}*/}
-            {/*      // sessions={userAverageSessions}*/}
-            {/*      // performance={userPerformance}*/}
-            {/*    />*/}
-            {/*  }*/}
-            {/*/>*/}
 
           </Routes>
         </Router>

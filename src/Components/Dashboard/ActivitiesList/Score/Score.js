@@ -5,6 +5,12 @@ import styles from './Score.module.css'
 import CustomLabel from "./CustomLabel"
 import PropTypes from "prop-types"
 
+/**
+ * Score Component
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Score = (props) => {
   const data = [
     { name: 'filler', value: props.score},
