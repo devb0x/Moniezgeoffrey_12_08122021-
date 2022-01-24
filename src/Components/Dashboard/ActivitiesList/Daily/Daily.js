@@ -27,7 +27,7 @@ const Daily = (props) => {
       }
       setData(props.activity)
     }
-  }, [])
+  }, [props.activity])
 
   return (
     <div className={styles.container} >

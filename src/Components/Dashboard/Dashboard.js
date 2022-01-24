@@ -20,15 +20,7 @@ const Dashboard = () => {
   const [error, setError] = useState('')
 
   const { id } = useParams()
-  let userId = null
-
-  const updateLoading = () => {
-    setIsLoaded(!isLoaded)
-  }
-
-  useEffect(() => {
-    userId = id
-  }, [id])
+  let userId = id
 
   useEffect( () => {
     Promise.all([
@@ -49,7 +41,9 @@ const Dashboard = () => {
           setUserPerformance(res)
         }),
     ])
-    .then(updateLoading)
+    .then(() => {
+      setIsLoaded(true)
+    })
     .catch(err => {
       setError(err)
     })

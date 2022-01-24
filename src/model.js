@@ -1,5 +1,7 @@
 import serviceBack, { mock } from "./service"
 
+const service = process.env.REACT_APP_SERVICE_MOCK === 'true' ? mock : serviceBack
+
 export default class userAPI {
   /**
    * @function
@@ -7,8 +9,7 @@ export default class userAPI {
    * @returns {Promise<{score, keyData: *, userInfos: *, id: *}>}
    */
   static getUserMainData(userId) {
-    return serviceBack.getUserMainData(userId)
-    // return mock.getUserMainData()
+    return service.getUserMainData(userId)
       .then(data => {
         return {
           id: data.id,
@@ -25,8 +26,7 @@ export default class userAPI {
    * @returns {Promise<{sessions: *, userId: *}>}
    */
   static getUserActivity(userId) {
-    return serviceBack.getUserActivity(userId)
-    // return mock.getUserActivity()
+    return service.getUserActivity(userId)
       .then(data => {
         return {
           userId: data.userId,
@@ -41,8 +41,7 @@ export default class userAPI {
    * @returns {Promise<{sessions: *, userId: *}>}
    */
   static getUserAverageSessions(userId) {
-    return serviceBack.getUserAverageSessions(userId)
-    // return mock.getUserAverageSessions()
+    return service.getUserAverageSessions(userId)
       .then(data => {
         return {
           userId: data.userId,
@@ -57,8 +56,7 @@ export default class userAPI {
    * @returns {Promise<{data: *, kind: *, userId: *}>}
    */
   static getUserPerformance(userId) {
-    return serviceBack.getUserPerformance(userId)
-    // return mock.getUserPerformance()
+    return service.getUserPerformance(userId)
       .then(data => {
         return {
           userId: data.userId,
