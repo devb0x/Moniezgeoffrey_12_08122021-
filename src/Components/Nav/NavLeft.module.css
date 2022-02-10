@@ -6,6 +6,7 @@
   flex-direction: column;
   height: calc(100vh - 91px);
   margin-right: 117px;
+  box-shadow: 0 80vh 0 black;
 }
 
 .nav-left > ul {

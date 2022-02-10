@@ -2,6 +2,7 @@ header {
   background-color: #020203;
   height: 91px;
   display: flex;
+  width: 100%;
 }
 
 .logo {
@@ -16,16 +17,18 @@ header {
 }
 
 .nav-top {
-  margin-left: auto;
-  margin-right: 5.5rem;
-  width: 100%;
+  width: 80%;
   width: -moz-fit-content;
   align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-top > ul {
   display: flex;
   justify-content: space-between;
+  min-width: 500px;
+  width: 50%;
 }
 
 .nav-top__link {

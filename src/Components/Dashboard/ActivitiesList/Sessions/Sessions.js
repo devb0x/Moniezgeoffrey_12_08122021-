@@ -45,8 +45,7 @@ const Sessions = (props) => {
   const CustomCursor = (props) => {
     const { points, width } = props;
     const { x } = points[0];
-    console.log(props);
-    console.log(points)
+
     return (
       <Rectangle
         fill="rgba(0, 0, 0, 0.1)"

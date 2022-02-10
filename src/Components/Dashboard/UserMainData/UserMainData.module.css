@@ -3,13 +3,12 @@
 }
 
 aside {
-  float: right;
-  display: flex;
-  flex-direction: column;
-  margin: 2rem 0 0 0;
-  padding: 0;
-  justify-content: space-between;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem auto 1rem 1rem;
+  width: fit-content;
 }
 
 .title {
@@ -35,3 +34,10 @@ aside {
   font-weight: 500;
 }
 
+@media screen and (min-width: 1440px) {
+  aside {
+    float: right;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
