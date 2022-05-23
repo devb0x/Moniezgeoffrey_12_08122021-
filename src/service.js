@@ -8,8 +8,8 @@ import axios from "axios"
 const mockedMainData = {
   id: 12,
   userInfos: {
-    firstName: 'Mocked firstName',
-    lastName: 'lastName',
+    firstName: 'John Doe',
+    lastName: 'Mocked Data',
     age: 47,
   },
   todayScore: 0.75,
